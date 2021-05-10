@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { CreateDeveloperDto } from '../dto/create-developer.dto';
 import { DeveloperRepository } from './developer.repository';
 
 @Injectable()
@@ -10,9 +11,11 @@ export class DeveloperService {
         private developerRepository: DeveloperRepository,
       ) {}
 
-    createDeveloper(dto) {
+    createDeveloper(dto: CreateDeveloperDto) {
     return  this.developerRepository.createDeveloper(dto);
     }
-
+    getDeveloper() {
+     return  this.developerRepository.getDeveloper();
+    }
 
 }
